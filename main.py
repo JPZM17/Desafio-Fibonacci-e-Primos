@@ -23,21 +23,18 @@ def fibonacci(n:int):
     print("Por favor, insira um numero superior a zero")
     return 
   
-  num_a = 1
-  num_b = 0
-  i = 0
+  if n == 0:
+    return 0
+  elif n == 1:
+    return 1
 
-  while(i <= n):
-    print("num_a: " + str(num_a))
-    print("num_b: " + str(num_b))
-    num_novo = num_a + num_b
-    num_b = num_a
-    num_a = num_novo
-    i += 1
+  num_a = 0
+  num_b = 1
 
-  return num_novo
-
-
+  for i in range(2, n+1):
+    num_a, num_b = num_b, num_a + num_b
+  
+  return num_b
 
 # Numeros Primos
 
