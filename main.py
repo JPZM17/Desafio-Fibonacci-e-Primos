@@ -42,6 +42,17 @@ def numeros_primos(n: int):
   if n < 1:
     print("Por favor, insira um numero superior a um (1)")
     return 
+  
+  num_primos = []
+  for i in range(2, n + 1):
+    for j in range(2, int((n/2)) + 1):
+      if i%j == 0:
+        break;
+    else:
+      num_primos.append(i)
+  
+  print(num_primos)
+
 
   
 
