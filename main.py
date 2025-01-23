@@ -75,12 +75,46 @@ def mostrar_opcoes_iniciais():
 def mostrar_opcoes_solucoes():
   print("Como quer executar a funcão? Escolha uma das formas a baixo")
   print("1 - Padrão")
-  print("2 - ")
-  print("1 - Padrão")
-
-
+  print("2 - Regressão")
+  print("3 - Linear")
+  
 #final
 mostrar_opcoes_iniciais()
-escolha_desafio = int(input())
-#TENHO QUE VALIDAR A ESCOLHA
+
+escolha_desafio = 0
+while (escolha_desafio != 1 and escolha_desafio != 2):
+  escolha_desafio = int(input())
+  if escolha_desafio != 1 and escolha_desafio != 2:
+    print("Por favor, escolha uma opcão valida")
+    mostrar_opcoes_iniciais()
+
+mostrar_opcoes_solucoes()
+
+escolha_solucao = 0
+while (escolha_solucao != 1 and escolha_solucao != 2 and escolha_desafio != 3):
+  escolha_solucao = int(input())
+  if (escolha_solucao != 1 and escolha_solucao != 2 and escolha_desafio != 3):
+    print("Por favor, escolha uma opcão valida")
+    mostrar_opcoes_solucoes()
+
+if escolha_desafio == 1:
+  print("Digite um número, e a funcão ira mostrar qual o valor desta posicão")
+  print("Na sequencia de Fibonacci!")
+  num_fibonacci = int(input())
+  if escolha_solucao == 1:
+    fibonacci(num_fibonacci)
+  elif escolha_solucao == 2:
+    pass
+  else:
+    pass
+else:
+  print("Digite um número e a funcão mostrara")
+  print("os numeros primos que existem até ele.")
+  num = int(input())
+  if escolha_solucao == 1:
+    numeros_primos(num)
+  elif escolha_solucao == 2:
+    pass
+  else:
+    pass
 
