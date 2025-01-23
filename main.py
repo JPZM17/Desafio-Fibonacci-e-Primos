@@ -1,6 +1,5 @@
 # Fibonacci
 
-
 # -- Criar uma função em sua linguagem preferida. 
 # A função deve receber um numero N >= 0 (deve validar o input para a função), 
 # e retornar o valor correspondente desse número na sequência Fibonacci. 
@@ -60,9 +59,10 @@ def numeros_primos(n: int):
     else:
       num_primos.append(i)
   
-  print(num_primos)
+  return num_primos
 
 #  --- Criar uma função recursiva que resolva p
+
 
 
 # --- Criar uma função linear que resolva p
@@ -121,7 +121,7 @@ else:
   print("os numeros primos que existem até ele.")
   num = int(input())
   if escolha_solucao == 1:
-    numeros_primos(num)
+    mostrar_resultado(numeros_primos(num))
   elif escolha_solucao == 2:
     pass
   else:
