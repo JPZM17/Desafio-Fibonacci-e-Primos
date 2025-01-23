@@ -15,17 +15,26 @@ def fibonacci(n:int):
   i = 0
 
   while(i <= n):
+    print("num_a: " + str(num_a))
+    print("num_b: " + str(num_b))
     num_novo = num_a + num_b
     num_b = num_a
     num_a = num_novo
     i += 1
-  print("Aqui esta o resultado: ")
-  print(num_novo)
 
-  pass
+  return num_novo
+  
 
 #--- Criar uma função recursiva que resolva Fibonacci
 
+def fibonacci_recursivo(n : int):
+  if n < 0:
+    print("Por favor, insira um numero superior a zero")
+    return 
+  if n <= 1:
+    return n
+  else:
+    return fibonacci_recursivo(n - 1) + fibonacci_recursivo(n - 2)
 
 # --- Criar uma função linear que resolva Fibonacci
 
@@ -53,10 +62,6 @@ def numeros_primos(n: int):
   
   print(num_primos)
 
-
-  
-
-
 #  --- Criar uma função recursiva que resolva p
 
 
@@ -78,6 +83,10 @@ def mostrar_opcoes_solucoes():
   print("2 - Regressão")
   print("3 - Linear")
   
+def mostrar_resultado( resultado):
+  print("Aqui esta o resultado: ")
+  print(resultado)
+
 #final
 mostrar_opcoes_iniciais()
 
@@ -102,9 +111,9 @@ if escolha_desafio == 1:
   print("Na sequencia de Fibonacci!")
   num_fibonacci = int(input())
   if escolha_solucao == 1:
-    fibonacci(num_fibonacci)
+    mostrar_resultado(fibonacci(num_fibonacci))
   elif escolha_solucao == 2:
-    pass
+    mostrar_resultado(fibonacci_recursivo(num_fibonacci))
   else:
     pass
 else:
