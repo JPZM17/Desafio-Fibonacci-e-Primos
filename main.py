@@ -4,6 +4,20 @@
 # A função deve receber um numero N >= 0 (deve validar o input para a função), 
 # e retornar o valor correspondente desse número na sequência Fibonacci. 
 # EX. fib(0) =0; fib(1) = 1; fib(2) = 1; fib(3) = 2; fib(5) = 5; fib(6) = 8.
+
+#--- Criar uma função recursiva que resolva Fibonacci
+
+def fibonacci_recursivo(n : int):
+  if n < 0:
+    print("Por favor, insira um numero superior a zero")
+    return 
+  if n <= 1:
+    return n
+  else:
+    return fibonacci_recursivo(n - 1) + fibonacci_recursivo(n - 2)
+
+# --- Criar uma função linear que resolva Fibonacci
+
 def fibonacci(n:int):
   if n < 0:
     print("Por favor, insira um numero superior a zero")
@@ -22,20 +36,6 @@ def fibonacci(n:int):
     i += 1
 
   return num_novo
-  
-
-#--- Criar uma função recursiva que resolva Fibonacci
-
-def fibonacci_recursivo(n : int):
-  if n < 0:
-    print("Por favor, insira um numero superior a zero")
-    return 
-  if n <= 1:
-    return n
-  else:
-    return fibonacci_recursivo(n - 1) + fibonacci_recursivo(n - 2)
-
-# --- Criar uma função linear que resolva Fibonacci
 
 
 
@@ -45,6 +45,12 @@ def fibonacci_recursivo(n : int):
 # A função deve receber um numero N > 1 (validar o input), 
 # e retornar todos os números primos até o número N. 
 # EX. p(2) = [2]; p(3) = [2, 3]; p(10) = [2, 3, 5, 7];
+
+#  --- Criar uma função recursiva que resolva p
+
+
+
+# --- Criar uma função linear que resolva p
 
 def numeros_primos(n: int):
   if n < 1:
@@ -61,14 +67,6 @@ def numeros_primos(n: int):
   
   return num_primos
 
-#  --- Criar uma função recursiva que resolva p
-
-
-
-# --- Criar uma função linear que resolva p
-
-
-
 
 # UI
 
@@ -79,9 +77,9 @@ def mostrar_opcoes_iniciais():
 
 def mostrar_opcoes_solucoes():
   print("Como quer executar a funcão? Escolha uma das formas a baixo")
-  print("1 - Padrão")
+  print("1 - Linear")
   print("2 - Regressão")
-  print("3 - Linear")
+  
   
 def mostrar_resultado( resultado):
   print("Aqui esta o resultado: ")
@@ -112,18 +110,14 @@ if escolha_desafio == 1:
   num_fibonacci = int(input())
   if escolha_solucao == 1:
     mostrar_resultado(fibonacci(num_fibonacci))
-  elif escolha_solucao == 2:
-    mostrar_resultado(fibonacci_recursivo(num_fibonacci))
   else:
-    pass
+    mostrar_resultado(fibonacci_recursivo(num_fibonacci))
 else:
   print("Digite um número e a funcão mostrara")
   print("os numeros primos que existem até ele.")
   num = int(input())
   if escolha_solucao == 1:
     mostrar_resultado(numeros_primos(num))
-  elif escolha_solucao == 2:
-    pass
   else:
     pass
 
