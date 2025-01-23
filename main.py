@@ -8,8 +8,8 @@
 #--- Criar uma função recursiva que resolva Fibonacci
 
 def fibonacci_recursivo(n : int):
-  if n < 0:
-    print("Por favor, insira um numero superior a zero")
+  if not isinstance(n, int) or n < 0:
+    print("Por favor, insira um numero inteiro superior a zero")
     return 
   if n <= 1:
     return n
@@ -19,8 +19,8 @@ def fibonacci_recursivo(n : int):
 # --- Criar uma função linear que resolva Fibonacci
 
 def fibonacci(n:int):
-  if n < 0:
-    print("Por favor, insira um numero superior a zero")
+  if not isinstance(n, int) or n < 0:
+    print("Por favor, insira um numero inteiro superior a zero")
     return 
   
   if n == 0:
@@ -45,13 +45,41 @@ def fibonacci(n:int):
 
 #  --- Criar uma função recursiva que resolva p
 
+#para isso optei por fazer uma pequena funcão auxiliar
 
+def eh_primo(n, divisor=None):
+  if divisor is None:
+        divisor = n - 1
+  if n <= 1:
+        return False
+  if divisor == 1:
+        return True
+  if n % divisor == 0:
+        return False
+  return eh_primo(n, divisor - 1)
+
+#funcao em si
+
+def numeros_primos_recursiva(n : int):
+  if not isinstance(n, int) or n < 1:
+    print("Por favor, insira um numero inteiro superior a um (1)")
+    return   
+  
+  #fiz outra func auxiliar
+  def auxiliar(x):
+    if x < 2:
+      return []
+    if eh_primo(x):
+      return auxiliar(x - 1) + [x]
+    return auxiliar(x - 1)
+
+  return auxiliar(n)
 
 # --- Criar uma função linear que resolva p
 
 def numeros_primos(n: int):
-  if n < 1:
-    print("Por favor, insira um numero superior a um (1)")
+  if not isinstance(n, int) or n < 1:
+    print("Por favor, insira um numero inteiro superior a um (1)")
     return 
   
   num_primos = []
@@ -75,7 +103,7 @@ def mostrar_opcoes_iniciais():
 def mostrar_opcoes_solucoes():
   print("Como quer executar a funcão? Escolha uma das formas a baixo")
   print("1 - Linear")
-  print("2 - Regressão")
+  print("2 - Regressiva")
   
   
 def mostrar_resultado( resultado):
@@ -116,5 +144,5 @@ else:
   if escolha_solucao == 1:
     mostrar_resultado(numeros_primos(num))
   else:
-    pass
+    mostrar_resultado(numeros_primos_recursiva(num))
 
